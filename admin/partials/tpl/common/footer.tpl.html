@@ -1,0 +1,11 @@
+<div ng-if="noty.queue.length > 0" ng-show="noty != undefined && noty.queue != undefined && noty.queue.length>0" ng-cloak class="ng-cloak alerts">
+        <div class="alert alert-{{(m.type)||'info'}} alert-dismissable fade in pull-right" ng-repeat="m in noty.queue">
+            <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+            <div>
+                <i class="fa fa-check" ng-if="m.icon == 'check'"></i>
+                <i class="fa fa-exclamation-triangle" ng-if="m.icon == 'exclamation'"></i>&nbsp;
+                <i class="fa fa-exclamation-triangle" ng-if="m.icon == 'info'"></i>&nbsp;
+                <span ng-bind-html="m.body"></span>
+            </div>
+        </div>
+    </div>

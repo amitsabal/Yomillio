@@ -1,0 +1,67 @@
+'use strict';
+
+// Declare app level module which depends on views, and components
+var app = angular.module('zinnovRtiApp',[
+            'ui.router',
+            'ui.footable',
+            'rt.select2'
+        ]);
+
+app.constant('REST_API_URL', "http://localhost/RTI/trunk/admin/src/");
+app.constant('APP_BASE_URL', "http://localhost/RTI/trunk/admin/");
+app.constant('API', {
+        "LOGIN" : "adminusers/login",
+        "LOGOUT" : "adminusers/logout",
+        
+        "ADMIN_USERS_LIST" : "adminusers/getall",
+        "ADMIN_USERS_CREATE" : "adminusers/create",
+        "ADMIN_USERS_UPDATE" : "adminusers/update",
+        "ADMIN_USERS_GET" : "adminusers/get",
+        "ADMIN_USERS_CHANGE_PASSWORD" : "adminusers/changepassword",
+        
+        "ARTICLES_LIST" : "articles/getall",
+        "ARTICLES_GET" : "articles/get",
+        "ARTICLES_CREATE" : "articles/create",
+        "ARTICLES_UPDATE" : "articles/update"
+    });
+
+app.config(['$stateProvider', '$urlRouterProvider','$httpProvider',
+    function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    	$httpProvider.interceptors.push('AuthInterceptor');
+        
+        $stateProvider.state('rti', {
+            abstract: true,
+			views: {
+				'main-content' : {
+					templateUrl: 'partials/tpl/pages/home.tpl.html'
+				},
+				'header': {
+					templateUrl: 'partials/tpl/common/header.tpl.html'
+				},
+				'footer': {
+					templateUrl: 'partials/tpl/common/footer.tpl.html'
+				},
+				'sidebar' : {
+					templateUrl: 'partials/tpl/common/sidebar.tpl.html'	
+				}
+            },
+			data : {
+				layout : "site",
+				requireLogin : true,
+                page : "Return to India"
+			}
+		})
+        .state('rti.change-password', {
+			url: '/change-password',
+			views: {
+				'main-content@' : {
+					templateUrl: 'partials/tpl/pages/change_password.tpl.html'
+				}
+            },
+			controller : 'ApplicationController',
+            data : {
+                page : "Change Password"
+            }
+		});
+		//$urlRouterProvider.otherwise('/login');
+	}]);

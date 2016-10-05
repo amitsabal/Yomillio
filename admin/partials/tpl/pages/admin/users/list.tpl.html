@@ -1,0 +1,48 @@
+<div  ng-controller="AdminUsersCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>Admin Users</li>
+        </ol>
+    </div>
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <button type="button" class="btn btn-primary" id="addNew" ng-click="goToPage('rti.admin-users-save');"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search" ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <table class="table table-bordered  footable" ng-model="adminusers" data-sort-initial="true" data-page-size="10">
+        <thead>
+            <th>Sl No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <div id="loadingRecord" class="text-center loading"></div>
+            <tr ng-repeat="adminuser in adminusers | filter : search.text | orderBy: 'username'" ng-if="adminusers.length > 0 || adminusers != undefined">
+                <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                <td data-sort-ignore="true">
+                    <a href="#/admin/users/save/{{adminuser.id}}">{{adminuser.username}}</a></td>
+                <td data-sort-ignore="true">{{adminuser.email}}</td>
+                <td ng-if="adminuser.status == 1">Active</td>
+                <td ng-if="adminuser.status == 2">Inactive</td>
+            </tr>
+            <tr ng-if="adminusers.length <= 0">
+                <td colspan="6">No Records Found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

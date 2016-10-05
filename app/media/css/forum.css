@@ -1,0 +1,322 @@
+body {
+    color: #111!important
+}
+h4 {
+    font-family: sans-serif;
+}
+.filterForum>ul, .archieve>ul, .recentpost>ul {
+    float: left;
+    margin-bottom: 0;
+    padding-left: 0!important;
+    width: 100%
+}
+.filterForum>ul>li, .archieve>ul>li {
+    display: block;
+    padding: 5px 10px
+}
+.recentpost>ul {
+    list-style: none;
+    margin-left: 9px;
+}
+.filterForum>ul>li>a, .archieve>ul>li>a, .recentpost>ul>li>a {
+    color: #0075bf !important;    
+    font-weight: bold;
+    text-decoration: none;
+}
+.filterForum>ul>li>a.active {
+    color: #000;
+}
+.filterForum>ul>li>a:hover, .filterForum>ul>li:hover>a {
+	background-color: rgba(232, 232, 232, 0) !important;
+	background-image: linear-gradient(to bottom,rgba(245, 245, 245, 0) 0,rgba(232, 232, 232, 0) 100%) !important;
+}
+.filterForum>ul>li i, .archieve>ul>li i, .recentpost>ul>li i {
+    margin-right: 10px !important;
+}
+.formTable td {
+    font-size: 14px;
+    border: 0!important
+}
+.formTable tbody td {
+    cursor: pointer
+}
+.commenterName {
+    padding-top: 7px
+}
+::-webkit-input-placeholder {
+    font-style: normal;
+    font-size: 16px
+}
+::-moz-placeholder {
+    font-style: normal;
+    font-size: 16px
+}
+:-ms-input-placeholder {
+    font-style: normal;
+    font-size: 16px
+}
+input:-moz-placeholder {
+    font-style: normal;
+    font-size: 16px
+}
+.preNextForum {
+    padding: 10px!important;
+    background-color: #fafafa;
+    border: 1px solid #d4d4d4
+}
+.carousel-indicators li {
+    background-color: #ccc;
+    border: none!important;
+    width: 8px;
+    height: 8px
+}
+.carousel-indicators .active {
+    background-color: #0094da;
+    width: 10px;
+    height: 10px
+}
+.carousel-indicators {
+    position: relative;
+    bottom: -10px!important
+}
+.carousel-date {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 10;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    padding: 10px;
+    border: 1px solid #fff;
+    line-height: 1
+}
+.carousel-date .date {
+    font-size: 34px
+}
+.carousel-date .month {
+    font-size: 20px
+}
+.carousel-date .year {
+    font-size: 18px
+}
+.carousel-time {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 10;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    line-height: 1
+}
+.carousel-time p {
+    font-family: "HelveticaNeueW10-75Bold", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px
+}
+.carousel-time .timeHeding,
+.carousel-time .venueHeding {
+    text-decoration: underline
+}
+.carousel-event-name {
+    z-index: 10;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px
+}
+.full-width {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+.carousel-table {
+    display: table;
+    height: 100%;
+    width: 100%
+}
+.trendingDiscussions {}.formTrendingDiscussionsTable thead {
+    background-color: #36a7df;
+    font-size: 22px;
+    color: #fff
+}
+.formTrendingDiscussionsTable {
+    border: 1px solid #d4d4d4
+}
+.formTrendingDiscussionsTable td,
+.formTrendingDiscussionsTable th {
+    border: none!important
+}
+.formTrendingDiscussionsTable thead:after {
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    display: inline-block;
+    border-top: 15px solid #36a7df;
+    border-left: 15px solid transparent;
+    content: ''
+}
+.formTrendingDiscussionsTable>tbody>tr>td {
+    padding: 10px 20px
+}
+.italic {
+    font-style: italic
+}
+.date p {
+	font-family: sans-serif;
+}
+#add_new_threads {
+	padding: 6px 28px !important;
+}
+.articleDropdown {
+	position: relative !important;
+	border: 0px !important;
+	box-shadow: none !important;
+	margin: -10px -56px 0 !important;
+	list-style: none;
+}
+.articleDropdown>li {
+	padding: 5px 0;
+}
+.articleDropdown>li>a {	
+	color: #0075bf !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+.categorydropdown {
+	display: none;
+}
+.articleDropdown>li>a.active {
+	color: rgb(0, 117, 191) !important
+}
+.recentpost a {
+    font-size: 14px;
+}
+.recentpost .fa {
+    font-size: x-small !important;
+    color: rgba(0, 113, 152, 0.62) !important;
+}
+.pagination {
+    position: relative;
+    padding-left: 0;
+    margin: 5% auto 2% auto;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    display: block !important;
+}
+.pagination>li>a, .pagination>li>span {
+    float: none !important;
+    background-color: rgb(152, 163, 163) !important;
+    box-shadow: 0px 5px 0px rgb(127, 140, 140) !important;
+    border-radius: 3px !important;
+    color: rgb(255, 255, 255) !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    border: 0px !important;
+    transition: opacity 0.1s ease !important;
+    -moz-transition: opacity 0.1s ease  !important;
+    -ms-transition: opacity 0.1s ease  !important;
+    -o-transition: opacity 0.1s ease  !important;
+    -webkit-transition: opacity 0.1s ease  !important;
+}
+
+.pagination>li>a:hover, .pagination>li.active>a {   
+    background-color: rgb(246, 133, 33) !important;
+    box-shadow: 0px 5px 0px rgb(210, 109, 20) !important;
+}
+
+.fa-reply {
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform: rotateX( -180deg );
+    color: rgb(165, 42, 42);
+}
+
+.view_replies {
+    padding: 0px 20px 0 20px !important;
+}
+
+.sortby {
+    position: relative;
+}
+
+.sortbyfields {
+    padding: 0px 20px 40px 20px;
+}
+
+.horizontalLine {
+    position: absolute;
+    bottom: 12px;
+    padding: 3px;
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: rgba(140, 140, 140, 0.64);
+}
+
+.forumSortButton {
+    padding: 3px 12px 0px 12px;
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: none !important;
+}
+
+.forumSortButton.active {
+    background-color: #fcc420 !important;
+    box-shadow: 0px 5px 0px #fbb51b !important;
+    border-radius: 4px;
+    outline: none !important;
+    outline-offset: 0 !important;
+    font-weight: bold;
+    color: black !important;
+}
+
+.linkGrayHover .fa {
+    background-color: #76777a;
+    box-shadow: 0px 5px 0px #626366 !important;
+    border-radius: 4px;
+    color: white !important;
+    padding: 5px 10px;
+}
+
+.fa-thumbs-o-up:hover,
+.fa-thumbs-o-up:active {
+    background-color: #00c2f2 !important;
+    box-shadow: 0px 5px 0px #00b3ef !important;
+}
+
+.fa-thumbs-o-up:hover + span {
+    color: #00c2f2 !important;
+}
+
+.fa-thumbs-o-down:hover,
+.fa-thumbs-o-down:active {
+    background-color: #ff1600 !important;
+    box-shadow: 0px 5px 0px #ff1200 !important;
+}
+
+.fa-thumbs-o-down:hover + span {
+    color: #ff1600 !important;
+}
+
+
+.fa-thumbs-o-up {
+    transform: rotateY(180deg);
+}
+
+textarea, textarea:focus {
+    background-color: rgb(229, 230, 230) !important;
+    border: 1px solid rgb(214, 218, 218) !important;
+    border-radius: 4px;
+    resize: none;
+    outline: none !important;
+}
+
+.submitAnswerButton {
+    padding: 6px 45px !important;
+}
+
+.sortby div {
+    font-family: sans-serif !important;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Zinnov : Return To India",
+  "version": "0.0.0",
+  "description": "Return TO India Portal",
+  "keywords": [
+    "zinnov",
+    "return",
+    "to",
+    "india"
+  ],
+  "authors": [
+    "Radhika H A"
+  ],
+  "license": "MIT",
+  "homepage": "http://returntoindia.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

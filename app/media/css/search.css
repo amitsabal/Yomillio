@@ -1,0 +1,141 @@
+.filterResult>ul
+{
+	position: relative;
+	float: left;
+	margin-bottom: 0px;
+	padding-left: 0px !important;
+	width: 100%;
+}
+.filterResult>ul>li
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+}
+.filterResult>ul>li>a{
+  color: #fff;
+}
+.filterResult>ul>li>a.active{
+  color: #000;
+}
+.searchResultearch input {
+  height: 39px;
+  border-radius: 0px !important;
+  color: #0094d9;
+  /*background-color: #f7f8f8;*/
+}
+
+.pagination {
+	position: relative;
+	padding-left: 0;
+	margin: 5% auto 2% auto;
+	border-radius: 4px;
+	width: 100%;
+	text-align: center;
+	display: block !important;
+}
+.pagination>li>a, .pagination>li>span {
+	float: none !important;
+	background-color: rgb(152, 163, 163) !important;
+	box-shadow: 0px 5px 0px rgb(127, 140, 140) !important;
+	border-radius: 3px !important;
+	color: rgb(255, 255, 255) !important;
+	outline: none !important;
+	outline-offset: 0 !important;
+	border: 0px !important;
+	transition: opacity 0.1s ease !important;
+	-moz-transition: opacity 0.1s ease  !important;
+	-ms-transition: opacity 0.1s ease  !important;
+	-o-transition: opacity 0.1s ease  !important;
+	-webkit-transition: opacity 0.1s ease  !important;
+}
+
+.pagination>li>a:hover, .pagination>li.active>a {	
+	background-color: rgb(246, 133, 33) !important;
+	box-shadow: 0px 5px 0px rgb(210, 109, 20) !important;
+}
+
+.resultTypeHeader
+{
+	z-index: 1;
+}
+/*.resultTypeComments{
+	border-bottom: 1px solid #d4d4d4;
+	padding-bottom: 6px !important;
+}*/
+.resultTypeType{
+	border-bottom: 2px solid #319bdf;
+	padding-bottom: 6px !important;
+}
+.singleSearchResult{
+	margin-bottom: 30px;
+}
+
+.socialLinks {
+	position: absolute;
+	left: 0;
+	bottom: 17px;
+	cursor: pointer;
+}
+.articlereadmore {
+	position: absolute;
+	right: 0;
+	bottom: 7px;
+	padding: 9px 25px;
+}
+.articlereadmore:hover {
+    background-color: #354960 !important;
+    box-shadow: 0px 5px 0px #2c3d50 !important;
+}
+.socialLinks .btn { 	
+	padding: 6px 8px 2px;
+}
+.socialLinks:hover .articleComments {
+	color: rgb(246, 133, 33) !important;
+}
+.socialLinks:hover .btn {
+	background-color: rgb(246, 133, 33) !important;
+	box-shadow: 0px 5px 0px rgb(210, 109, 20) !important;
+}
+.socialLinks .fa {
+	font: normal normal normal 16px/1 FontAwesome !important;
+	font-size: initial !important;
+}
+.articleFooter {
+	position: absolute;
+	left: 0;
+	bottom: -60px;
+	z-index: 10;
+	width: 212px;
+	display: none;
+}
+.articleShareIcon {
+	border: 1px solid rgb(0, 0, 0);
+	border-bottom: 3px solid rgb(0, 194, 242);
+	border-radius: 4px;
+	background: rgb(255, 255, 255);
+	margin-top: 9px;
+	padding: 6px;
+}
+.articleShareIcon:before {
+	bottom: 83%;
+	left: 5%;
+	border: solid rgba(0, 0, 0, 0);
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-left: 5px solid rgba(0, 0, 0, 0);
+	border-right: 5px solid rgba(0, 0, 0, 0);
+	border-bottom: 5px solid rgb(63, 63, 63);
+}
+.searchResultContent {
+	line-height: 16px;
+}
+.socicalIcon a {
+    margin: 0 5px !important;
+}
+
+
+

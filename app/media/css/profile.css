@@ -1,0 +1,144 @@
+body{
+	color: #111111 !important;
+}
+.lastLogin>ul
+{
+	position: relative;
+	float: left;
+	margin-bottom: 0px;
+	padding-left: 0px !important;
+	width: 100%;
+}
+.lastLogin>ul>li
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #111111;
+}
+
+.lastLogin>ul>li.active{
+  color: #fff;
+}
+
+.profileImg img{
+	width: 80px;
+	height: 80px;
+}
+.profileUserName{
+	font-size: 20px;
+	font-family: "HelveticaNeueW10-65Medi", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	margin: 0px;
+	padding-top: 30px;
+	clear: both;
+}
+.profileUserDesignation{
+	font-size: 28px;
+	font-family: "HelveticaNeueW10-65Medi", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	font-style: italic;
+}
+/*Email link*/
+.userProfileEmail{
+	padding-left: 40px;
+	background-position: 0 0 !important;
+	font-size: 17px;
+}
+.userProfileEmail:hover, .userProfileEmail:active{
+	background-position: 0 -19px !important;
+}
+.userProfileEmail a{
+	font-size: 16px;
+	font-family: "HelveticaNeueW10-45Ligh", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	color: #111111;
+}
+.userProfileEmail a:hover, .userProfileEmail a:active {
+	color: #0094d9;
+}
+
+/*Linkedin link*/
+.userProfileLinkedin{
+	padding-left: 40px;
+	background-position: 0 0 !important;
+	font-size: 21px;
+}
+.userProfileLinkedin:hover, .userProfileLinkedin:active{
+	background-position: 0 -25px !important;
+}
+.userProfileLinkedin a{
+	font-size: 16px;
+	font-family: "HelveticaNeueW10-45Ligh", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	color: #111111;
+}
+.userProfileLinkedin a:hover, .userProfileLinkedin a:active {
+	color: #0094d9;
+}
+/*ACTIVITY */
+hr.activityHeadingLine{
+	margin-top: 0px;
+	margin-left: 220px;
+	border-top: 0px;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.activityComments{
+	list-style: none;
+	padding: 0px;
+}
+.activityComments li{
+	width: 100%;
+	padding: 10px;
+	padding-left: 30px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.activityComments li:nth-child(odd) {
+	background: #e8e8e8; 
+}
+.activityComments li:nth-child(even) {
+	background: #f1f1f1; 
+}
+.activityTitle{
+	font-family: "HelveticaNeueW10-75Bold", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	font-size: 24px;
+	padding: 5px;
+}
+.activityComment{
+	font-family: "HelveticaNeueW10-45Ligh", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	font-size: 17px;
+	padding: 5px;
+}
+.activityDate{
+	font-family: "HelveticaNeueW10-45Ligh", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+	font-size: 12px;
+	padding: 5px;
+	color: #000;
+}
+.profile-logout, .profile-logout a{
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+}
+.profile-logout a:hover{
+	cursor: pointer;
+	text-decoration: none;
+	color: #D1ECF9;
+}
+ul.profile-list {
+	list-style: none;
+}
+
+.bg-grey {
+	background-color: #DCDCDC;
+	border-radius: 5px;
+}
+.uploadimg {
+	background-color: #DCDCDC;
+}
+.profile-tab {
+	display: none;
+}
+
+input[type="button"]:hover, input[type="button"]:focus {
+	outline: none;
+	color: white;
+}

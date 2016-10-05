@@ -1,0 +1,293 @@
+/*Home Page Styles*/
+
+.imgDiv {
+    margin: 1px!important
+}
+.imgDivLink:hover .imgContent {
+    background: rgba(5, 30, 87, 0.5)!important
+}
+.imgDivLink:hover .imgContentMainFooter,
+.imgDivLink:hover .imgContentFooter {
+    color: #00b5f1!important
+}
+.imgDivLink:hover .imgContentMainFooter,
+.imgDivLink:hover .imgContentFooter {
+    display: block
+}
+.imgContent {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+.imgContentHeaderArticle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    color: #fafafa;
+    margin: 11px;
+    padding: 1px 3px;
+    background-color: #00b4f0;
+    font-weight: bold;
+    letter-spacing: 0.06em
+}
+.imgContentHeaderComment {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    color: #fafafa;
+    margin: 11px;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    background-color: rgba(0, 0, 0, 0.34);
+    padding: 1px 3px
+}
+.imgContentMainFooter {
+    position: absolute;
+    bottom: 0;
+    font-size: 30px;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: none
+}
+.imgContentFooter {
+    position: absolute;
+    bottom: 0;
+    font-size: 24px;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: none
+}
+.articleHeader {
+    z-index: 1
+}
+.articleComments {
+    font-size: 14px
+}
+.articleType {
+    border-bottom: 2px solid #319bdf;
+    padding-bottom: 6px!important
+}
+.articleContent {
+    margin-bottom: 5px;
+}
+.articleFooter {
+    padding-bottom: 10px
+}
+.articleShareIcon {
+    display: none
+}
+hr.headingLine {
+    padding-top: 20px;
+    border-bottom: 1px solid #d4d4d4;
+    border-top: 0
+}
+hr.videoBorder {
+    margin-top: 0;
+    margin-left: 95px;
+    border-top: 0;
+    border-bottom: 1px solid #d4d4d4
+}
+hr.infographicsBorder {
+    margin-top: 0;
+    margin-left: 190px;
+    border-top: 0;
+    border-bottom: 1px solid #d4d4d4
+}
+.fa-border-black {
+    border: 1px solid #111;
+    padding: 3px 12px;
+    color: #111
+}
+.videoImgContent {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+.recommendedContentDiv .videoImgContent {
+    position: relative
+}
+.videoImgPlayButton {
+    display: table;
+    height: 100%;
+    width: 90%;
+}
+.videoPlayImg {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center
+}
+.videoImgMainContentFooter {
+    position: absolute;
+    bottom: 0;
+    font-size: 34px;
+    color: #fff;
+    padding: 11px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.75);
+    left: 0
+}
+.videoImgContentFooter {
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    color: #fff;
+    padding: 11px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+    left: 0
+}
+.playHover {
+    display: none
+}
+.infographicContent {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+.infographicContent:hover,
+.infographicContent:active {
+    background: rgba(5, 30, 87, 0.5)!important
+}
+.infographicContent:hover .infographicInnerContent,
+.infographicContent:active .infographicInnerContent {
+    display: table-cell
+}
+.infographicContentDiv {
+    display: table;
+    height: 100%;
+    width: 100%
+}
+.infographicInnerContent {
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+    padding: 20px!important;
+    display: none
+}
+.forumImageDiv {
+    overflow: hidden;
+    opacity: 1;
+    top: 50%;
+    -webkit-backface-visibility: hidden;
+    position: relative
+}
+.forumImage:hover {
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    position: relative;
+    opacity: .4
+}
+.forumImage {
+    transition-property: all;
+    -webkit-transform: scale(1, 1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 350ms;
+    -moz-transform: scale(1, 1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 350ms
+}
+.forumImageContent {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(10, 75, 221, 0.25)!important
+}
+.forumImageContentDiv {
+    display: table;
+    height: 100%;
+    width: 100%
+}
+.forumImageInnerContent {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff
+}
+.forumImageInnerContent span {
+    font-size: 24px;
+    padding: 6px 12px;
+    border: 2px solid #fff;
+    display: none;
+    font-family: "HelveticaNeueW10-75Bold", "Helvetica Neue", "Open Sans", Arial, sans-serif
+}
+.fixedShare {
+    position: fixed;
+    margin-left: -75px;
+    padding: 5px
+}
+.articleDropdown {
+    right: -10px;
+    left: inherit
+}
+.embed-responsive-63 {
+    padding-bottom: 62%
+}
+.embed-responsive-75 {
+    padding-bottom: 75%
+}
+.numberOfArticleCommentDiv,
+.numberOfInfographicCommentDiv {
+    outline: 0
+}
+.linkedin-alternative {
+    line-height: 0.5;
+    text-align: center
+}
+.linkedin-alternative span {
+    display: inline-block;
+    position: relative
+}
+.linkedin-alternative span:before,
+.linkedin-alternative span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid white;
+    top: 0;
+    width: 50px
+}
+.linkedin-alternative span:before {
+    right: 100%;
+    margin-right: 15px
+}
+.linkedin-alternative span:after {
+    left: 100%;
+    margin-left: 15px
+}
+.linkedin-alternative-padding {
+    padding: 30px 0 18px 0
+}
+.uploadimg {
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 4px 6px 4px 8px;
+    font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+    color: #7f7f7f;
+    margin-top: 2px;
+    background: white;
+    cursor: pointer
+}
+.uploadimg input[type="file"] {
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    opacity: 0;
+    cursor: pointer;
+    width : 150px;
+    font-size: 0;
+}

@@ -1,0 +1,66 @@
+<div  ng-controller="tagsCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>Tags</li>
+        </ol>
+    </div>
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <button type="button" class="btn btn-primary" id="addNew" ng-click="goToPage('rti.tags-save')"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search" ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%" align="center">
+    <thead>
+        <tr>
+            <td>
+                <dir-pagination-controls boundary-links="true" class="pull-center" pagination-id="tagsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+            </td>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            <table class="table table-bordered" ng-model="tags">     
+                <thead>
+                    <th>Sl No.</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    <div id="loadingRecord" class="text-center loading"></div>
+                    <tr dir-paginate="tag in tags | filter : search.text | orderBy:'title':true | itemsPerPage: pageSize"
+                            ng-if="tags.length > 0 || tags != undefined" current-page="currentPage" pagination-id="tagsPagination">                  
+                        <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                        <td data-sort-ignore="true">
+                            <a href="#/tags-save/{{tag.id}}">{{tag.name}}</a></td>
+                        <td ng-if="tag.status == 1">Active</td>
+                        <td ng-if="tag.status == 2">Inactive</td>
+                    </tr>
+                    <tr ng-if="tags.length <= 0">
+                        <td colspan="6">No Records Found</td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-right" pagination-id="tagsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

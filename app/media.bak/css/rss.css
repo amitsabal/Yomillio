@@ -1,0 +1,11 @@
+ul.rss-feed {
+    list-style: none;
+}
+
+ul.rss-feed li {
+    list-style: none;
+    line-height: 20px;
+    padding:5px;
+    display: inline-block !important;
+    width:25%;
+}

@@ -1,0 +1,82 @@
+<div  ng-controller="forumsCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>Forum</li>
+        </ol>
+    </div>
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <button style="display:none" type="button" class="btn btn-primary" id="addNew" ng-click="goToPage('rti.forum-save')"><span class="glyphicon glyphicon-plus"></span> Add New</button></div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search" ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%" align="center">
+        <thead>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-center" pagination-id="forumsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table class="table table-bordered" ng-model="forums">  
+                    <thead>
+                        <th>Sl No.</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></th>
+                        <th><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></th>
+                        <th><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></th>
+                        <th>Comments</th>
+                        <th>Status</th>
+                    </thead>
+                    <tbody>
+                        <div id="loadingRecord" class="text-center loading"></div>
+                        <tr dir-paginate="forum in forums | filter : search.text | orderBy:'title':true | itemsPerPage: pageSize"
+                            ng-if="forums.length > 0 || forums != undefined" current-page="currentPage" pagination-id="forumsPagination">                  
+                            <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                            <td data-sort-ignore="true">
+                                <a href="#/forum-save/{{forum.id}}">{{forum.title}}</a></td>
+                            <td data-sort-ignore="true">{{forum.category.title}}</td>
+                            <td data-sort-ignore="true">{{forum.author.first_name}}{{forum.author.last_name}}</td>
+                            <td data-sort-ignore="true">{{forum.vote_up}}</td>
+                            <td data-sort-ignore="true">{{forum.vote_down}}</td>
+                            <td data-sort-ignore="true">{{forum.view_count}}</td>
+                            <td data-sort-ignore="true">{{forum.answers.length}}</td>
+                            <td ng-if="forum.status == 1"><span class="label label-success">Published</span></td>
+                            <td ng-if="forum.status == 2"><span class="label label-warning">Unpublished</span></td>
+                        </tr>
+                        <tr ng-if="forums.length <= 0">
+                            <td colspan="7">No Records Found</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="hide-if-no-paging">
+                        <tr>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-right" pagination-id="forumsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

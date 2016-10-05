@@ -1,0 +1,100 @@
+.banner-caption {
+	position: absolute;
+	bottom: 15%;
+	width: 100%;
+	left: 0;
+}
+
+h3 {
+	margin-top: 12px;
+	margin-bottom: 0px;
+}
+
+p {
+	margin: 4px 0 14px 0px;
+}
+
+.eventcontainer {
+	height: 325px;
+}
+
+.eventwrap {
+	margin-top: -220px;
+}
+
+.registrationButton  {
+	margin-top: 1.5%;
+}
+
+.showOnHoverEventContent {
+	position: absolute;
+	display: none; 
+	top: 0;
+	background-color: rgba(50, 193, 241, 0.41);
+	margin: 0 13px;
+	border-radius: 2px;
+	height: 100%;
+	width: 90%;
+	left: auto;
+	right: auto;	
+}
+
+.showOnHoverEventContent a{
+	text-decoration: none;
+}
+
+.showOnHoverEventContent p {
+	height: 100%;
+}
+
+.readmoreEvent {
+	position: absolute;
+	bottom: -13px;
+	left: 22%;
+	padding: 11px 9px;
+	width: 57%;
+	margin-bottom: 3px;
+	z-index: 200;
+}
+
+.owl-item {
+	cursor: pointer;
+}
+
+.readmoreEvent:hover, .owl-item:hover .readmoreEvent {
+	background-color: #f68521;
+    box-shadow: 0px 5px 0px rgb(210, 109, 20) !important;
+    color: white;
+}
+
+.articleFooter {
+	position: absolute;
+	bottom: 43px;
+}
+
+.socicalIcon a {
+	margin: 0px !important;
+}
+
+.owl-prev, .owl-next {
+	background: rgba(188, 188, 188, 0) !important;
+}
+
+.owl-prev .fa, .owl-next .fa {
+	color: rgb(0, 0, 0);
+	text-indent: 0 !important;
+	font-size: 43px;
+}
+
+.articleContent img {
+	max-width: 270px;
+}
+
+#noEvent {
+	display: none;
+}
+
+.articleContent {
+        max-height: 270px;
+        height: auto !important;
+}

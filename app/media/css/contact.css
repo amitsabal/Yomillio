@@ -1,0 +1,23 @@
+form input, form textarea {
+	border-radius: 4px !important;
+	border: 0px !important;
+	background-color: #e5e6e6 !important;
+	-webkit-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+	-moz-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+	box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+	width: 99% !important;
+}
+
+textarea:focus, select:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus {
+	background-color: #e5e6e6 !important;
+	border-radius: 4px !important;
+	border: 0px !important;
+	-webkit-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+	-moz-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+	box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.29) !important;
+}
+
+.fa.fa-map-marker {
+	font: normal normal normal 16px/1 FontAwesome;
+	font-size: x-large;
+}

@@ -1,0 +1,135 @@
+<div  ng-controller="forumsCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>
+                Forums                
+            </li>
+            <span style="float:right">
+                <span class="glyphicon glyphicon-thumbs-up glyphicon-span" aria-hidden="true"></span><span> : {{Forum.vote_up}}</span>
+                <span class="glyphicon glyphicon-thumbs-down glyphicon-span" aria-hidden="true"></span><span> : {{Forum.vote_down}}</span>
+                <span class="glyphicon glyphicon-eye-open glyphicon-span" aria-hidden="true"></span><span> : {{Forum.view_count}}</span>
+            </span>
+        </ol>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form name="form" id="Form" class="form-horizontal" role="form" method="post" ng-submit="save(Forum);" novalidate>                                  
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Title : <span class="required"></span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="text" id="title" name="title" class="form-control title"  value="" autofocus="" ng-model="Forum.title" disabled="true">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                    </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Summary : <span class="required"></span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea id="summary" name="summary" class="form-control summary" ng-model="Forum.summary" rows="5" cols="25" disabled="true"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                    </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Author : <span class="required"></span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="text" id="author" name="author" class="form-control author"  value="{{Forum.first_name}} {{Forum.last_name}}" autofocus="" disabled="true">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+        </form>
+        <div class="form-group">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-warning form-inline pull-right" name="unpublishForum" id="unpublishForum" ng-if="Forum.status != 2 " ng-click="unpublishForum(Forum.id);">
+                    <span class="glyphicon glyphicon-remove"></span> Unpublish
+                </button>
+                <button type="submit" class="btn btn-success form-inline pull-right" name="publishForum" id="publishForum" ng-if="Forum.status != 1 " ng-click="publishForum(Forum.id);">
+                    <span class="fa fa-check"></span> Publish
+                </button>
+                <button type="submit" class="btn btn-danger form-inline pull-right" style="margin-right:18px;margin-left:18px;" name="delete" id="deleteBtn" ng-if="Forum.id > 0" ng-click="deleteForum(Forum.id);">
+                    <span class="glyphicon glyphicon-remove"></span> Delete
+                </button>
+                <button type="button" class="btn btn-primary form-inline pull-right listAll" name="listAll" id="listAll" ng-click="goToPage('rti.forum-list')">
+                    <span class="glyphicon glyphicon-list-alt"></span> List All
+                </button>
+            </div>
+        </div>
+    
+    
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar" style="margin-top: 50px;margin-bottom: 10px !important">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <span>Comments</span></div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search" ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%" align="center">
+        <thead>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-center" pagination-id="commentsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table class="table table-bordered" ng-model="comments">    
+                    <thead>
+                        <th>Sl No.</th>
+                        <th>Comment</th>
+                        <th>User</th>
+                        <th><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></th>
+                        <th><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></th>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="comment in comments | filter : search.text | orderBy:'answer':true | itemsPerPage: pageSize"
+                            ng-if="comments.length > 0 || comments != undefined" current-page="currentPage" pagination-id="commentsPagination">                  
+                            <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                            <td data-sort-ignore="true">{{comment.answer}}</td>
+                            <td data-sort-ignore="true">{{comment.first_name}} {{comment.last_name}}</td>
+                            <td data-sort-ignore="true">{{comment.vote_up}}</td>
+                            <td data-sort-ignore="true">{{comment.vote_down}}</td>
+                        </tr>
+                        <tr ng-if="comments.length <= 0">
+                            <td colspan="4">No Records Found</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="hide-if-no-paging">
+                        <tr>
+                            <!--<td colspan="4" align="center">
+                                <ul class="pagination"></ul>
+                            </td> -->
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-right" pagination-id="commentsPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+
+#header{
+	background-color: #1574C4;
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #36a3ff; /*Blue:#36a3ff;*/ /*Purple #411053*/
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-right li a {
+    color: #fff;
+}

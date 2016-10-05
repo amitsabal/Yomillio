@@ -1,0 +1,87 @@
+<div  ng-controller="usersCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>Users</li>
+        </ol>
+    </div>
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <!--<button type="button" class="btn btn-primary" id="addNew" ng-click="goToPage('rti.admin-users-save');"><span class="glyphicon glyphicon-plus"></span> Add New</button>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search"  ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%" align="center">
+        <thead>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-center" pagination-id="usersPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table class="table table-bordered" ng-model="users">    
+                    <thead>
+                        <th>Sl No.</th>
+                        <th>Profile Image</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Registered On</th>
+                        <th>Status</th>
+                        <th>Registration Mode</th>
+                    </thead>
+                    <tbody>
+                        <div id="loadingRecord" class="text-center loading"></div>
+                        <tr dir-paginate="user in users | filter : search.text | orderBy:'email':true | itemsPerPage: pageSize"
+                            ng-if="users.length > 0 || users != undefined" current-page="currentPage" pagination-id="usersPagination">                  
+                            <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                            <td ng-if="user.linkedin_picture_url != null && user.linkedin_picture_url != ''">
+                                <img src="{{user.linkedin_picture_url}}" height="50px" width="50px"/>
+                            </td>
+                            <td ng-if="user.linkedin_picture_url == null || user.linkedin_picture_url == ''">
+                                <!--<img src="src/image.php" height="60px" width="60px"/>-->
+                                <img src="src/image.php?file_name={{user.profile_pic}}&type=users" height="50px" width="50px"/>
+                            </td>
+                            <td data-sort-ignore="true"><a href="#/users-details/{{user.id}}">{{user.email}}</a></td>
+                            <td data-sort-ignore="true">
+                                {{user.first_name}} {{user.last_name}}
+                            </td>
+                            <td>
+                                {{user.created_at|to_timestamp|date:'MM/dd/yyyy @ h:mma'}}
+                            </td>
+                            <td ng-if="user.status == 1">Active</td>
+                            <td ng-if="user.status == 2">Blocked</td>
+                            <td ng-if="user.linkedin_id != null && user.linkedin_id != ''">
+                                <i class="fa fa-linkedin fa-2x"></i>
+                            </td>
+                            <td ng-if="user.linkedin_id == null || user.linkedin_id == ''">Portal SignUp</td>
+                        </tr>
+                        <tr ng-if="users.length <= 0">
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-right" pagination-id="usersPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>

@@ -1,0 +1,275 @@
+<div  ng-controller="articlesCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>
+                Articles                
+            </li>
+            <li class="pull-right required">
+                <span class="text-right">Fields marked with * are mandatory</span>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form name="form" id="Form" class="form-horizontal" role="form" method="post" ng-submit="save(Article);" novalidate>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Title : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="text" maxlength="512" id="title" name="title" class="form-control title" placeholder="Title" required="Please enter title" value="" autofocus="" ng-model="Article.title">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                    </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Summary : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea rows="5" maxlength="2048" cols="250" id="summary" name="summary" class="form-control" placeholder="Summary" required="Please enter summary" autofocus="" ng-model="Article.summary"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="category_id" class="col-sm-2 control-label formlabel" style="">Category : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                        <select2 ng-model="Article.category_id" ng-options="val.id as val.title for val in categories" placeholder="Select Category" style="width:100%;"></select2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="status" class="col-sm-2 control-label formlabel">Type : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="type_id" checked="checked" id="type_id_text" value="1" ng-model="Article.type_id" ng-click="showContent = true;showvideo=false"/>
+                                Article
+                            </label>
+                        </div>
+                        <div class="radio" id="radio_2">
+                            <label>
+                                <input type="radio" name="type_id" id="type_id_image" value="2" ng-model="Article.type_id" ng-click="showContent=true;showvideo=false;"/>
+                                Infographics
+                            </label>
+                        </div>
+                        <div class="radio" id="radio_3">
+                            <label>
+                                <input type="radio" name="type_id" id="type_id_video" value="3" ng-model="Article.type_id" ng-click="showvideo = true;showContent=false;"/>
+                                Video
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group" ng-cloak ng-show="showContent" ng-hide="hideContent">
+                <label for="name" class="col-sm-2 control-label formlabel">Content : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <!--<textarea rows="10" cols="250" id="content" name="content" class="ckeditor form-control" placeholder="Content" required="Please enter content" autofocus="" ng-model="Article.content"></textarea>
+                -->
+                        <textarea ckeditor="ckEditorOptions" ng-model="Article.content" id="content" name="content"></textarea>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label formlabel">Tags : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <selectize config='tagsConfig' options='tags' ng-model="Article.tags"></selectize>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            <div class="form-group video-link" ng-show="showvideo">
+                <label for="name" class="col-sm-2 control-label formlabel">Video Link : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="text" id="video_id" name="video_id" class="form-control video_id" placeholder="Video Link" value="" autofocus="" ng-model="Article.video_id">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="status" class="col-sm-2 control-label formlabel">Is Featured? : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <div class="radio" style="float: left;">
+                            <label>
+                                <input type="radio" name="is_featured" id="is_featured" checked="checked" value="1" ng-model="Article.is_featured"/>
+                                Yes
+                            </label>
+                        </div>
+                        <div class="radio" id="radio_featured_inactive" style="float: left;margin-left: 20px;">
+                            <label>
+                                <input type="radio" name="is_featured" id="is_featured" value="2" ng-model="Article.is_featured"/>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="status" class="col-sm-2 control-label formlabel">Status : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        
+                        <div class="radio" id="radio_2" style="float: left;">
+                            <label>
+                                <input type="radio" name="status" checked="checked" id="status" value="2" ng-model="Article.status"/>
+                                Draft
+                            </label>
+                        </div>
+                        <div class="radio" style="float: left;">
+                            <label>
+                                <input type="radio" name="status"  id="status" value="1" ng-model="Article.status"/>
+                                Publish
+                            </label>
+                        </div>
+                        <div class="radio" style="float: left;" ng-if="Article.author_id > 0">
+                            <label>
+                                <input type="radio" name="status"  id="status" value="3" ng-model="Article.status"/>
+                                Pending for Approval
+                            </label>
+                        </div>
+                        <div class="radio" style="float: left;" ng-if="Article.author_id > 0">
+                            <label>
+                                <input type="radio" name="status"  id="status" value="5" ng-model="Article.status"/>
+                                Reject
+                            </label>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <span class="hint-text">Select 'Draft'/'Publish' status to approve and Select 'Reject' to reject user submitted article.</span>
+                        <div style="clear: both;"></div>
+                        <textarea name="reasonsForRejection" cols="80" rows="3" ng-if="Article.status == 5" placeholder="Enter reasons for rejection" ng-model="Article.reasons_for_rejection"></textarea>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <div class="form-group" ng-if="Article.status == 1">
+                <label for="published_at" class="col-sm-2 control-label formlabel">Publish Date:  <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <span class="input-group date" datepicker ng-model="Article.published_at">
+                            <input class="form-control datepicker" type="published_at" id="published_at" name="published_at"
+                                   value="Article.published_at" ng-model="Article.published_at" placeholder="Article Publish Date"
+                                   data-date-format="dd/mm/yyyy"/><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            
+                        </span>
+                        <span class="hint-text">Format : YYYY-MM-DD</span>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <selectize config='timeConfig' options='time' ng-model="Article.published_time"></selectize>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            
+            <div class="form-group" ng-if="Article.id > 0">
+                <label for="perma_link" class="col-sm-2 control-label formlabel">Perma Link : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="text" maxlength="1024" id="title" name="perma_link" class="form-control title" placeholder="Permanant Link to the Article" required="Please enter perma link" value="" autofocus="" ng-model="Article.perma_link">
+                        <span class="hint-text">Use 'Hyphen'/'-' to separate words</span>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                    </div>
+            </div>
+            
+            <div class="form-group" ng-if="Article.author_id > 0 && Article.submitted_image != null && Article.submitted_image != '' && (Article.thumbnail_image == '' || Article.thumbnail_image == null)">
+                <label for="submitted_image" class="col-sm-2 control-label formlabel">User Submitted Image:</label>
+                <div class="col-sm-10">
+                    <div ng-if="Article.submitted_image != null && Article.submitted_image != ''" ng-hide="Article.thumbnail_image != null && Article.thumbnail_image != ''">
+                        <img src="src/image.php?file_name={{Article.id}}/{{Article.submitted_image}}" height="50px" width="50px"/>
+                        <br/>
+                        <div class="radio" style="display: inline-block;">
+                            <label><input type="radio" name="choose_submitted_image" id="choose_submitted_image_yes" value="1" ng-model="Article.user_submitted_image" ng-click="toggleDisplay('showimage');" /> Approve&nbsp;&nbsp;</label>
+                        </div>&nbsp;&nbsp;
+                        <div class="radio" style="display: inline-block;">
+                            <label><input type="radio" name="choose_submitted_image" id="choose_submitted_image_no" value="0" ng-model="Article.user_submitted_image" ng-click="toggleDisplay('showimage');" /> Reject</label><br/>
+                        </div>&nbsp;&nbsp;
+                        <span class="hint-text">Select 'Approve' to keep user submitted image as article image; Otherwise choose 'Reject' & upload new one!</span>
+                        <br/>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            <div class="form-group thumbnail-image" ng-show="showimage" ng-controller="fileUploadCtrl">
+                <label for="name" class="col-sm-2 control-label formlabel">Image Upload: <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="button" ngf-select ng-model="thumbnail_image" ng-model="item_type" style="width: 156px;">
+                            <input style="float:left;" type="button" class="btn btn-primary" id="thumbnail_image" name="thumbnail_image" value="Select File ..." />
+                            <div class="display_image" style="float: left;margin-left: 10px;" ng-if="Article.thumbnail_image == null || Article.thumbnail_image == ''">
+                                <img id="thumbnail_display_image" src="#" height="40px" width="40px"/>
+                            </div>
+                            <div ng-if="Article.thumbnail_image != null && Article.thumbnail_image != ''">
+                                <img src="src/image.php?file_name={{Article.id}}/{{Article.thumbnail_image}}" height="50px" width="50px"/>
+                            </div>
+                            
+                            <!--<button class="btn btn-primary" id="featured_image" name="featured_image">Select File ...</button>-->
+                        </div>
+                        <!--<div>{{selectedFileName}}</div>-->
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                </div>
+            </div>
+            
+            
+        
+            <div class="form-group">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" name="save" id="saveBtn">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                    </button>
+                
+                    <button type="button" class="btn btn-danger" name="delete" id="deleteBtn" ng-if="Article.author_id > 0" ng-click="deleteArticle(Article.id);">
+                        <span class="glyphicon glyphicon-remove"></span> Delete
+                    </button>
+                    
+                    <button type="button" class="btn btn-primary listAll" name="listAll" id="listAll" ng-click="validateAndGoToPage('rti.articles-list')">
+                        <span class="glyphicon glyphicon-list-alt"></span> List All
+                    </button>
+                </div>
+            </div>
+            <br/>
+            <br/><br/>
+            <br/><br/>
+            <br/><br/>
+            <br/>
+        </form>
+    </div>
+</div>

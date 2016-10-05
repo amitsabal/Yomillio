@@ -1,0 +1,73 @@
+@media all and (max-width: 767px) and (min-width: 300px) {
+	/*Style for mobile phones, both portrait and landscape */
+	/*Common*/
+	.blur
+	{
+		-webkit-filter: blur(5px);
+		   -moz-filter: blur(5px);
+		    -ms-filter: blur(5px);
+		     -o-filter: blur(5px);
+		        filter: blur(5px);
+	}
+	/*Common*/
+	/*sidemenu*/
+	#sidemenu{
+		left: -220px;
+	}
+	.navbar-nav{
+		margin: 0px;
+	}
+	/*sidemenu*/
+	/*pagecontent*/
+	#pagecontent{
+		position: absolute;
+		width: 100%;
+		margin: 50px auto 0px;
+	}
+	.control-label{
+		margin-left: 15px;
+		margin-bottom: 10px !important;
+	}
+	.toolbar .btn{
+		margin-left: 6px;
+	}
+	#messagebox{
+		position: relative;
+		z-index: 100000;
+		width: 300px;
+		margin: 60px auto 0px;
+		display: none;
+		border-radius: 0px;
+		font-size: 13px;
+	}
+	#messagebox .close{
+		font-size: 21px;
+		background-color: #fff;
+		opacity: 1;
+		margin-top: -10px;
+		margin-right: -10px;
+		width: 36px;
+		height: 36px;
+		text-align: center;
+		line-height: 33px;
+		vertical-align: middle;
+	}
+	#toolbar .form-inline{
+		margin-top: 10px;
+	}
+	#toolbar .form-inline .searchColumn{
+		margin-right: 0px;
+		width: auto;
+	}
+    #balanceLeaveCount{
+        position: relative;
+    }
+    .leaveDetails {
+        float: none; 
+        margin-bottom: 10px;
+    }
+	/*pagecontent*/
+}
+@media all and (max-width: 1024px) and (min-width: 768px) {
+	/*Style for tablets*/
+}

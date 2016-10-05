@@ -1,0 +1,77 @@
+<div  ng-controller="articlesCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>Article</li>
+        </ol>
+    </div>
+    
+    <div class="row toolbar marginTop10 hidden-xs hidden-sm" id="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 toolbar" id="toolbar">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <button type="button" class="btn btn-primary" id="addNew" ng-click="goToPage('rti.articles-save')"><span class="glyphicon glyphicon-plus"></span> Add New</button></div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <form class="form-inline pull-right" role="search" ng-submit="clearText(search);" ng-model="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="filter" placeholder="Search" ng-model="search.text">
+                    </div>
+                    <button type="submit" class="btn btn-danger clearBtn">
+                        <span class="icon icon-clear"></span>Clear
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%" align="center">
+        <thead>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-center" pagination-id="articlesPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table class="table table-bordered" ng-model="articles">   
+                    <thead>
+                        <th>Sl No.</th>
+                        <td></td>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Submitted On</th>
+                        <th>Submitted By</th>
+                    </thead>
+                    <tbody>
+                        <div id="loadingRecord" class="text-center loading"></div>
+                        <tr dir-paginate="article in articles | filter : search.text | orderBy:'created_at':true | itemsPerPage: pageSize"
+                                        ng-if="articles.length > 0 || articles != undefined" current-page="currentPage" pagination-id="articlesPagination">
+                            <td>{{($index+1)+(pageSize)*(currentPage-1)}}</td>
+                            <td ng-if="article.submitted_image != null && article.submitted_image != ''">
+                                <img src="src/image.php?file_name={{article.id}}/{{article.submitted_image}}" height="50px" width="50px"/>
+                            </td>
+                            <td ng-if="article.submitted_image == null || article.submitted_image == ''">
+                                <img src="src/image.php" height="50px" width="50px"/>
+                            </td>
+                            <td data-sort-ignore="true">
+                                <a href="#/articles-save/{{article.id}}">{{article.title}}</a>
+                            </td>
+                            <td data-sort-ignore="true">{{article.category.title}}</td>
+                            <td ng-if="article.status == 3">{{article.created_at|to_timestamp|date:'MM/dd/yyyy @ h:mma'}}</td>
+                            <td ng-if="article.status != 3">N/A</td>
+                            <td data-sort-ignore="true">{{article.author.first_name}} {{article.author.last_name}}</td>
+                        </tr>
+                        <tr ng-if="articles.length <= 0">
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td>
+                    <dir-pagination-controls boundary-links="true" class="pull-right" pagination-id="articlesPagination" template-url="partials/tpl/common/pagination.tpl.html"></dir-pagination-controls>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

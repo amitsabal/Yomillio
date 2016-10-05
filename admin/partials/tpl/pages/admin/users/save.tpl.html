@@ -1,0 +1,107 @@
+<div  ng-controller="AdminUsersCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>
+                Admin Users                
+            </li>
+            <li class="pull-right required">
+                <span class="text-right">Fields marked with * are mandatory</span>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+        <form name="form" id="Form" class="form-horizontal" role="form" method="post" ng-submit="save(User);" novalidate>                                  
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label" style="">Username : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <input spellcheck="true" type="text" name="username" class="form-control username" style="" id="username"
+                                placeholder="Username" value="" autofocus="" ng-model="User.username" maxlength="50"
+                                />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="hidePassword">
+                <label for="password" class="col-sm-2 control-label" style="">Password : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <input spellcheck="true" maxlength="50" type="password" name="password" class="form-control password" style="" id="password" placeholder="Password" value="" autofocus="" ng-model="User.password" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="first_name" class="col-sm-2 control-label" style="">First Name : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <input spellcheck="true" maxlength="50" type="text" name="first_name" class="form-control first_name" style="" id="first_name" placeholder="First Name" value="" autofocus="" ng-model="User.first_name" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last_name" class="col-sm-2 control-label" style="">Last Name : </label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <input spellcheck="true" type="text" maxlength="50" name="last_name" class="form-control last_name" style="" id="last_name" placeholder="Last Name" value="" autofocus="" ng-model="User.last_name" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label" style="">Email : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <input spellcheck="true" maxlength="50" type="email" name="email" class="form-control email" style="" id="email" placeholder="Email" value="" autofocus="" ng-model="User.email" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="admin_groups_id" class="col-sm-2 control-label" style="">Group : <span class="required">*</span></label>
+                <div class="col-sm-10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <select2 ng-model="User.admin_groups_id" ng-options="val.id as val.name for val in values" placeholder="Select Group"></select2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status" class="col-sm-2 control-label" style="">Status : <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="radio" style="">
+                                <label>
+                                    <input type="radio" name="status" id="status" value="1" ng-model="User.status" />
+                                    Active
+                                </label>
+                            </div>
+                            <div class="radio" style="">
+                                <label>
+                                    <input type="radio" name="status" id="status" value="2"  ng-model="User.status" />
+                                    Inactive
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" name="save" id="saveBtn">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                    </button>
+                    <button type="button" class="btn btn-primary listAll" name="listAll" id="listAll" ng-click="goToPage('rti.admin-users');">
+                        <span class="glyphicon glyphicon-list-alt"></span> List All
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>

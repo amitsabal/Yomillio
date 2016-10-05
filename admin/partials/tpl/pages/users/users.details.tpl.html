@@ -1,0 +1,212 @@
+<div  ng-controller="usersCntrl">
+    <div class="row">
+        <ol class="breadcrumb pagebreadcrumb">
+            <li>
+                {{User.user.first_name}} {{User.user.last_name}}               
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <ul class="nav nav-tabs" id="mytab">
+            <li class="active tabname" data-id="#users"><a href="/#users" data-toggle="tab">User Details</a></li>
+            <li class="tabname" data-id="#submittedarticles"><a href="/#submittedarticles" data-toggle="tab">Submitted Articles</a></li>
+            <li class="tabname" data-id="#forums"><a href="/#forums" data-toggle="tab">Forums</a></li>
+            <li class="tabname" data-id="#skills" ng-if="User.id < 0"><a href="/#skills" data-toggle="tab">Skills</a></li>
+            <li class="tabname" data-id="#education" ng-if="User.id < 0"><a href="/#education" data-toggle="tab">Education</a></li>
+            <li class="tabname" data-id="#presentposition" ng-if="User.id < 0"><a href="/#presentposition" data-toggle="tab">Present Job Position</a></li>
+            <li class="tabname" data-id="#pastpositions" ng-if="User.id < 0"><a href="/#pastpositions" data-toggle="tab">Past Job Positions</a></li>
+        </ul>
+        
+        <div class="tab-content">
+            <div class="tab-pane tab-fade active marginTop10" id="users">
+                <form name="form" id="Form" class="form-horizontal" role="form" method="post" ng-submit="save(User);" novalidate>                                  
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label" style="">Email : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" type="text" name="email" class="form-control email" style="" id="email"
+                                        placeholder="Email" value="" autofocus="" ng-model="User.user.email" maxlength="25" readonly="true"
+                                        />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="first_name" class="col-sm-2 control-label" style="">First Name : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" maxlength="25" type="text" name="first_name" class="form-control first_name" style="" id="first_name" placeholder="" value="" autofocus="" readonly="true" ng-model="User.user.first_name" />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name" class="col-sm-2 control-label" style="">Last Name : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" type="text" maxlength="25" name="last_name" class="form-control last_name" style="" id="last_name" placeholder="" value="" autofocus="" readonly="true" ng-model="User.user.last_name" />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label" style="">Linkedin Email : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" type="text" name="email" class="form-control email" style="" id="email"
+                                        placeholder="" value="" autofocus="" ng-model="User.user.linkedin_email" maxlength="25" readonly="true"
+                                        />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label" style="">Job Title : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" readonly="true" maxlength="50" type="job" name="job" class="form-control job" style="" id="job" placeholder="" value="" autofocus="" ng-model="User.user.linkedin_job_title" />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label" style="">Profile URL : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <input spellcheck="true" readonly="true" maxlength="50" type="job" name="job" class="form-control job" style="" id="job" placeholder="" value="" autofocus="" ng-model="User.user.linkedin_profile_url" />
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label" style="">Profile Pic : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" ng-if="User.user.linkedin_picture_url != null && User.user.linkedin_picture_url != ''" >
+                                <img src="{{User.user.linkedin_picture_url}}" height="40px" width="40px" />
+                            </div>
+                            <div ng-if="User.user.linkedin_picture_url == null || User.user.linkedin_picture_url == ''" class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                <img src="src/image.php?file_name={{User.user.profile_pic}}&type=users" height="50px" width="50px"/>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage"></div>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label" style="">Status : <span class="required">*</span></label>
+                        <div class="col-sm-10">
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="radio" style="">
+                                    <label>
+                                        <input type="radio" name="status" id="status" value="1" ng-model="User.user.status" />
+                                        Active
+                                    </label>
+                                </div>
+                                <div class="radio" style="float: left;">
+                                    <label>
+                                        <input type="radio" name="status" id="status" value="2"  ng-model="User.user.status" />
+                                        Blocked
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 errormessage">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary" name="save" id="saveBtn">
+                                <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                            </button>
+                            <button type="button" class="btn btn-primary listAll" name="listAll" id="listAll" ng-click="goToPage('rti.users-list');">
+                                <span class="glyphicon glyphicon-list-alt"></span> List All
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="tab-pane tab-fade marginTop10" id="submittedarticles" ng-model="articles">
+                <table class="table table-bordered footable" ng-model="articles" data-sort-initial="true" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Submitted On</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="article in articles | filter : search.text | orderBy:'created_at':true" ng-if="articles.length > 0 || articles != undefined">
+                                <td ng-if="article.thumbnail_image != null && article.thumbnail_image != ''">
+                                    <img src="src/image.php?file_name={{article.id}}/{{article.thumbnail_image}}" height="50px" width="50px"/>
+                                </td>
+                                 <td ng-if="article.thumbnail_image == null ">
+                                    <img src="src/image.php?file_name=&type=users" height="50px" width="50px">
+                                </td> 
+                                <td data-sort-ignore="true">
+                                    <a href="#/articles-save/{{article.id}}">{{article.title}}</a>
+                                </td>
+                                <td data-sort-ignore="true">
+                                    <a href="#/categories-save/{{article.category.id}}">{{article.category.title}}</a>
+                                </td>
+                                <!-- <td data-sort-ignore="true">{{article.category.title}}</td> -->
+                                <td data-sort-ignore="true">{{article.created_at | date:'yyyy-MM-dd'}}</td>
+                                <td ng-if="article.status == 1"><span class="label label-success">Published</span></td>
+                                <td ng-if="article.status == 2"><span class="label label-warning">Draft</span></td>
+                                <td ng-if="article.status == 3"><span class="label label-danger">Pending</span></td>
+                                <!--<td ng-if="article.status == 3"><span class="label label-danger">Pending</span></td> -->
+                                <!-- <td data-sort-ignore="true">{{article.author.first_name}} {{article.author.last_name}}</td> -->
+                            </tr>
+                            <tr ng-if="articles.length <= 0">
+                                <td colspan="6">No Records Found</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div class="tab-pane tab-fade marginTop10" id="forums" ng-model="forums">
+                <table class="table table-bordered footable" ng-model="forums" data-sort-initial="true" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Summary</th>
+                                <th><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></th>
+                                <th><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></th>
+                                <th><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></th>
+                                <th>Status</th>
+                                <th>Author</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="forum in forums | filter : search.text | orderBy: 'title'" ng-if="forums.length > 0 || forums != undefined">
+                                <td data-sort-ignore="true">
+                                    <a href="#/forum-save/{{forum.id}}">{{forum.title}}</a>
+                                </td>
+                                <td data-sort-ignore="true">
+                                    <a href="#/forum-categories-save/{{forum.category.id}}">{{forum.category.title}}</a>
+                                </td>
+                                <td data-sort-ignore="true">{{forum.summary}}</td>
+                                <td data-sort-ignore="true">{{forum.vote_up}}</td>
+                                <td data-sort-ignore="true">{{forum.vote_down}}</td>
+                                <td data-sort-ignore="true">{{forum.view_count}}</td>
+                                <td ng-if="forum.status == 1"><span class="label label-success">Published</span></td>
+                                <td ng-if="forum.status == 2"><span class="label label-warning">Unpublished</span></td>
+                                <td data-sort-ignore="true">
+                                    <a href="#/users-details/{{forum.author.id}}">{{forum.author.first_name}} {{forum.author.last_name}}</a>
+                                </td>
+                            </tr>
+                            <tr ng-if="forums.length <= 0">
+                                <td colspan="6">No Records Found</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

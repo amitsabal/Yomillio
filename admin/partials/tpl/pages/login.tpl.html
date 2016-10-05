@@ -1,0 +1,14 @@
+
+    <div class="row" ng-controller="loginCntrl">
+        <div class="col-md-4 col-md-offset-4 text-center">
+            <form class="form-signin" name="loginForm" ng-submit="login(User);">
+                <h2 class="form-signin-heading login-header">Please login</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="Please enter username" autofocus="" ng-model="User.username" maxlength="50">
+                <label class="active-class uname-label">*This field is Mandatory</label>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""  ng-model="User.password" maxlength="50">
+                <button class="btn btn-lg btn-primary btn-block" id="login" name="login" value="login" type="submit">Login</button>
+            </form>        
+        </div>
+    </div>

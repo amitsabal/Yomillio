@@ -1,0 +1,300 @@
+.visible-2-5{
+    display: none !important;
+}
+
+@media (max-width: 470px) {
+    .col-md-xxs {
+        width: 100%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .play{
+        width: 30% !important;
+    }
+    .playHover{
+        width: 30% !important;
+    }
+    .navbar-brand{
+        width: 75% !important;
+    }
+    .xs-no-padding{
+        padding: 0px !important;
+    }
+    .singleVideo{
+        overflow: hidden !important;
+    }
+    .videoImgMainContentFooter{
+    	font-size: 20px !important;
+    }
+    .readmore {
+        margin: 20px auto !important;
+    }
+    #accordion a {
+        text-decoration: none !important;
+    }
+    .articlereadmore {
+        padding: 9px 10px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .imgContentMainFooter{
+        font-size: 18px !important;
+    }
+    .imgContentFooter{
+        font-size: 16px !important;
+    }
+    .signupPopup .input-icon {
+        float: none !important;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+    .imgContentMainFooter{
+        font-size: 24px !important;
+    }
+    .imgContentFooter{
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .loginPopup, .newThreadsPopup, .LinkedInPopup, .signupPopup, .ForgotPasswordPopup, .similarThreadsPopup{
+        position: absolute !important;
+    } 
+    .signupPopup .input-icon {
+        float: none !important;
+    }
+    .videosContent a{
+        margin-bottom: 20px !important;
+    }
+    .singleVideo{
+        margin-bottom: 30px !important;
+        padding: 0px !important;
+    }
+    .articleCategoryType{
+        margin: 0px !important;
+    }
+    .infographicType {
+        margin: 0px !important;
+    }
+    .xs-margin-top-30{
+        margin-top: 30px !important;
+    }.activityComments li{
+        padding-left: 15px !important;
+    }
+    .nextArticleDiv{
+        margin-top: 10px !important;
+    }
+    .preNextArticle {
+        padding: 10px !important;
+        background-color: rgb(250, 250, 250);
+        border: 2px solid rgb(212, 212, 212) !important;
+        min-height: 130px;
+    }
+    .xs-no-padding{
+        padding: 0px !important;
+    }
+    .footer {
+        overflow: hidden;
+    }
+    .footer .footer-scale {
+        position: relative;
+        max-width: 1500px;
+        margin-bottom: 20px;
+    }
+    .featured p {
+        width: 100% !important;
+    }
+    .articleContent p {
+        min-height: 100% !important;
+        max-height: 100% !important;
+    }
+    .readmore {
+        margin: 20px auto !important;
+    }
+    .navbar-collapse ul {
+        float: left !important;
+    }
+    .navbar-collapse .loginbtn {
+        float: left !important;
+        margin: 1.8% 0% 20px 0% !important;
+
+    } 
+    #item1 {
+        background: url('../images/Cover Page.jpg') center no-repeat;
+        width: 100%;
+    }
+    .carousel-caption {
+        position: relative;
+        margin-top: 27%;
+        left: 0 !important;
+    }
+    .carousel-caption  h1 {
+        font-size: 30px !important;
+    }
+    .carousel-caption  p {
+        width: 95% !important;
+        font-size: 14px;
+    }
+    .selectCategory  .no-padding {
+        padding: 0 0 15px 15px !important;
+    }
+    .searchBox input {
+        border: 0px;
+        border-radius: 2px !important;
+    }
+    .searchBox button {
+        border: 0px;
+        color: white;
+    }
+    .navbar-toggle {
+        margin-right: 0;
+        cursor: pointer;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: rgba(0, 0, 0, 0);
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgb(255, 247, 247);
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: rgba(221, 221, 221, 0);
+    }
+    .ps-list {
+        margin-bottom: 12% !important;
+    }
+    .ps-list h3 {
+        display: none;
+    }
+    .ps-list img {
+        padding: 0 10px;
+    }
+    .socicalIcon a {
+        margin: 0 0 0 4px !important;
+    }
+    .articlereadmore {
+        position: relative !important;
+        float: right;
+        display: block;
+        width: 42%;
+        bottom: 0 !important;
+    }
+
+    .articleContentDesc {
+        padding-bottom: 14px;
+    }
+
+    .filterArticles, .filterInsights {
+        padding: 0 !important;
+    }
+
+    .filterArticles button, #add_new_article, .filterInsights button {
+        float: left !important;
+    }
+
+    .newArticle {
+        float: left !important;
+    }
+
+    .singleArticle img, .videoImgPlayButton {
+        margin: auto !important;
+    }
+
+    .banner-caption {
+        position: relative !important;
+        margin-top: 53%;
+        left: 0 !important;
+        margin-bottom: 13px;
+    }
+
+    .widgetIframe, .organisedBy {
+        float: left !important;
+    }
+
+    .sortbyfields {
+        padding: 0px 5px 40px 5px !important;
+    }
+
+    .forumSortButton {
+        padding: 3px 8px 0px 8px !important;
+        margin-left: 0 !important;
+    }
+
+    .registrationButton {
+        margin-top: 1.5%;
+        position: relative;
+        float: left !important;
+        margin-bottom: 13px;
+    }
+
+    .articleContent, .searchResultContent {
+        height: auto !important;
+        max-height: 100% !important;
+    }
+
+    .articleContent .socialLinks, .searchResultContent .socialLinks {
+        position: relative !important;
+        float: left;
+        bottom: 0 !important;
+    }
+
+    .searchResultearch form {
+        margin-top: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+    .carousel-caption p {
+        width: 96%;
+    }
+    .carousel-caption {      
+        bottom: -21px !important;  
+    }
+    .readmore {
+        margin: 20px auto !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-2-5 {
+        width: 20%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .visible-2-5{
+        display: block !important;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1100px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .sm-margin-top-20{
+        margin-top: 20px !important
+    }
+    .sm-no-padding{
+        padding: 0px !important;
+    }
+    .videoImgContentFooter {
+    	font-size: 12px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar-nav>li {
+        margin-right: -21px !important;
+    }
+}

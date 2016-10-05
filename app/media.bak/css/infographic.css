@@ -1,0 +1,102 @@
+body{
+	color: #111111 !important;
+}
+h1, h2, h3, h4, h5, h6{
+	color: #111111;
+}
+p{
+  color: #111111;
+  line-height: 1.5;
+}
+.infographicType{
+	font-size: 14px;
+	color: #fafafa;
+	margin-left: -23px;
+	padding: 3px;
+	background-color: #00b4f0;
+}
+.infographicTag{
+	background-color: #dddddd;
+	padding: 1px 6px;
+	margin: 0 3px;
+}
+.inforgaphicViewFull{
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	right: 10px;
+	display: none;
+}
+.infographicImg:hover .inforgaphicViewFull, .infographicImg:focus .inforgaphicViewFull{
+	display: inline;
+}
+.preNextInfographic{
+	padding: 10px !important;
+	background-color: #fafafa;
+	border: 1px solid #d4d4d4;
+	min-height: 200px;
+}
+hr.recommendedHeadingLine{
+	margin-top: 0px;
+	margin-left: 190px;
+	border-top: 0px;
+	border-bottom: 1px solid #d4d4d4;
+}
+.recommendedContentDiv a{
+	overflow: hidden;
+}
+.recomendedImg{
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+}
+.recommendedContent{
+	max-width: 240px;
+}
+
+.numberOfComment{
+	border-top: 1px solid #d4d4d4;
+	font-size: 26px;
+	font-family: "HelveticaNeueW10-45Ligh", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+}
+.infographicComment{
+	border-bottom: 1px solid #d4d4d4;
+}
+.toCommentLogin{
+	font-size: 24px;
+	font-family: "HelveticaNeueW10-75Bold", "Helvetica Neue", "Open Sans", Arial, sans-serif;
+}
+
+
+/*Popup Container*/
+.infographicImgFull{
+  margin: auto auto;
+  background: transparent;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 95%;
+  z-index: 999999;
+}
+.infographicContainer
+{
+  background-color: rgba(0, 2, 6, 0.8);
+  width:100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+.viewFullInfographicImg{
+  display: none;
+}
+.closeFullImgIcon
+{
+  position: fixed;
+  top:20px;
+  right:10px;
+  float: right;
+  z-index: 9999991;
+}

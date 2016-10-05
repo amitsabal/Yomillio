@@ -1,0 +1,32 @@
+{
+  "name": "RTI",
+  "version": "0.0.0",
+  "description": "RTI Application",
+  "main": "index.html",
+  "keywords": [
+    "RTI"
+  ],
+  "authors": [
+    "Radhika H A"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "jquery": "*",
+    "bootstrap": "*",
+    "angular-route": "*",
+    "font-awesome": "*",
+    "angular-select2": "~1.3.9"
+  },
+  "resolutions": {
+    "angular": "1.3.15"
+  }
+}
